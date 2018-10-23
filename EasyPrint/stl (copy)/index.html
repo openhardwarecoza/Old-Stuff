@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <title>OpenHardware 1-2-3-Print</title>
+  <meta charset="utf-8">
+   
+    <script src="Three.js"></script>
+    <script src="plane.js"></script>
+    <script src="thingiview.js"></script>
+
+    <script>
+      window.onload = function() {
+        thingiurlbase = ".";
+        thingiview = new T <script src="Three.js"></script>
+    <script src="plane.js"></script>
+    <script src="thingiview.js"></script>
+
+    <script>
+      window.onload = function() {
+        thingiurlbase = "/stl/javascripts";
+        thingiview = new Thingiview("viewer");
+        thingiview.setObjectColor('#CC0000');
+	thingiview.setBackgroundColor('#000000');
+        thingiview.initScene();
+        thingiview.loadSTL("/stl/objects/cube.stl");
+      }
+    </script>
+
+    <style>
+body{
+background-color: black;
+color: white;
+}
+a{
+color: white;
+}
+
+    </style>
+</head>
+<body>
+
+    <div id="viewer" style="width:600px;height:400px"></div>
+<p>
+  <input onclick="thingiview.setCameraView('top');" type="button" value="Top" /> 
+  <input onclick="thingiview.setCameraView('side');" type="button" value="Side" /> 
+  <input onclick="thingiview.setCameraView('bottom');" type="button" value="Bottom" /> 
+  <input onclick="thingiview.setCameraView('diagonal');" type="button" value="Diagonal" /> 
+ 
+  <input onclick="thingiview.setCameraZoom(5);" type="button" value="Zoom +" /> 
+  <input onclick="thingiview.setCameraZoom(-5);" type="button" value="Zoom -" /> 
+ 
+  Rotation: <input onclick="thingiview.setRotation(true);" type="button" value="on" /> | <input onclick="thingiview.setRotation(false);" type="button" value="off" />
+</p>
+<p>
+  <input onclick="thingiview.setObjectMaterial('wireframe');" type="button" value="Wireframe" /> 
+  <input onclick="thingiview.setObjectMaterial('solid');" type="button" value="Solid" />
+</p>
+
+<p>
+  Plane: <a href="#" onclick="thingiview.setShowPlane(false)">Hide</a> | <a href="#" onclick="thingiview.setShowPlane(true)">Show</a><br/>
+  Background Color: <a href="#" onclick="thingiview.setBackgroundColor('#606060')">Gray</a> | <a href="#" onclick="thingiview.setBackgroundColor('#ffffff')">White</a> | <a href="#" onclick="thingiview.setBackgroundColor('#000000')">Black</a><br/>
+  Object Color: <a href="#" onclick="thingiview.setObjectColor('#ffffff')">White</a> | <a href="#" onclick="thingiview.setObjectColor('#aa0000')">Red</a> | <a href="#" onclick="thingiview.setObjectColor('#CDFECD')">Green</a> | <a href="#" onclick="thingiview.setObjectColor('#C0D8F0')">Blue</a><br/>
+</p>
+
+</body>
+</html>

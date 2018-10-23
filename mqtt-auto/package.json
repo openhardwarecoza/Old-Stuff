@@ -1,0 +1,17 @@
+{
+  "name": "mqtt-auto",
+  "version": "1.0.0",
+  "description": "Home Automation MQQT-Auto\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[3~T",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Peter van der Walt",
+  "license": "GPLv3",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.1.1",
+    "mqtt": "^2.3.1"
+  }
+}

@@ -1,0 +1,573 @@
+<!doctype html>
+<html><head>
+
+<!-- Template from http://www.workingtemplates.com/admin-template/blocks -->
+
+    <meta charset="utf-8">
+    <title>CoPrint</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="LWF">
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.flow.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/jquery-input-history.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/coprint.css" rel="stylesheet">
+
+
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/tempgraph.js"></script>
+    <script type="text/javascript" src="js/esp8266.js"></script>
+    <script type="text/javascript" src="js/jog.js"></script>
+    <script type="text/javascript" src="js/filehandler.js"></script>
+
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/socketcomms.js"></script>
+    <script type="text/javascript" src="js/configparser.js"></script>
+
+
+    <!-- ThreeJS -->
+    <script type="text/javascript" src="lib/threejs/three.min.js"></script>
+    <script type="text/javascript" src="lib/threejs/GridRect.js"></script>
+    <script type="text/javascript" src="lib/threejs/OrbitControls.js"></script>
+    <script type="text/javascript" src="lib/threejs/Projector.js"></script>
+    <script type="text/javascript" src="lib/threejs/CanvasRenderer.js"></script>
+    <script type="text/javascript" src="lib/threejs/TransformControls.js"></script>
+    <script type="text/javascript" src="lib/threejs/TweenMax.min.js"></script>
+    <script type="text/javascript" src="lib/viewer.js"></script>
+
+    <!-- Gcode Viewer -->
+    <script type="text/javascript" src="lib/gcode-viewer/gcode-parser.js"></script>
+    <script type="text/javascript" src="lib/gcode-viewer/ui.js"></script>
+
+    <link type="text/css" rel="stylesheet" media="all" href="lib/nprogress/nprogress.css" />
+    <script type="text/javascript" src="lib/nprogress/nprogress.js"></script>
+
+
+    <style type="text/css">
+      body {
+        padding-top: 7px;
+      }
+    </style>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+  	<!-- Google Fonts call. Font Used Open Sans & Raleway -->
+	<link href="http://fonts.googleapis.com/css?family=Raleway:400,300" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+
+
+    <div class="container-fluid" id="container1">
+      <div class="row">
+        <div class="col-sm-5 col-md-3">
+          <div class="row">
+            <div class="col-sm-12 col-md-12">
+              <div class="dash-unit">
+                <dtitle>Machine Interface</dtitle>
+                <hr>
+
+                <ul class="nav nav-tabs" role="tablist">
+                   <li role="presentation" class="active"><a href="#usb" aria-controls="connections" role="tab" data-toggle="tab">USB</a></li>
+                   <li role="presentation"><a href="#wifi" aria-controls="wifi" role="tab" data-toggle="tab">Wifi</a></li>
+                 </ul>
+
+                 <!-- Tab panes -->
+                 <div class="tab-content">
+                   <div role="tabpanel" class="tab-pane active" id="usb">
+                     <br>
+                    <form class="form">
+                      <div class="input-group btn-group">
+                        <span class="input-group-addon"><i class="fa fa-usb" aria-hidden="true"></i></span>
+                          <select id="port" class="form-control">
+                             <option value="no">Select port</option>
+                          </select>
+                      <!-- </div>
+                      <div class="input-group btn-group"> -->
+                         <span class="input-group-addon"><i class="fa fa-tty" aria-hidden="true"></i></span>
+                         <select id="baud" class="form-control">
+                             <option value="250000">250000</option>
+                             <option value="230400">230400</option>
+                             <option value="115200" selected="selected">115200</option>
+                             <option value="57600">57600</option>
+                             <option value="38400">38400</option>
+                             <option value="19200">19200</option>
+                             <option value="9600">9600</option>
+                         </select>
+                      </div>
+                      <br>
+                      <div class="input-group btn-group btn-group-justified">
+                           <a id="connect" class="btn btn-success disabled" href="#">Connect</span></a>
+                           <a id="closePort" class="btn btn-danger disabled" href="#" style="display: none;">Disconnect</span></a>
+                           <a id="refreshPort" class="btn btn-default" href="#"><i class="fa fa-refresh"></i></a>
+                      </div>
+                      </form>
+
+                      <br>
+                     <div class="input-group btn-group">
+                       <span class="input-group-addon"><i class="fa fa-hdd-o" aria-hidden="true"></i></span>
+                       <select id="drives" class="form-control">
+                           <option value="" disabled>Select Drive...</option>
+                       </select>
+                       <span class="input-group-btn">
+                           <button id="sendCommand" class="btn btn-default" type="button" onclick="socket.emit('listDrives'); $('#filelist').empty();">
+                               <i class="fa fa-refresh" style="margin-right: 10px;"></i> Refresh
+                           </button>
+                       </span>
+                     </div>
+                     <table class="table small">
+                       <thead>
+                         <tr>
+                           <th>Filename</th>
+                           <th>Action</th>
+                         </tr>
+                       </thead>
+                       <tbody id="filelist">
+                     </table>
+
+                   </div>
+                   <div role="tabpanel" class="tab-pane" id="wifi">
+                     <div class="form-group">
+
+                       <h4>Specify IP</h4>
+                       <div class="input-group">
+                         <span class="input-group-addon"><i class="fa fa-fw fa-wifi"></i></span>
+                         <input id="espIp" type="text" class="form-control" maxlength="16" placeholder="192.168.137.22" style="width: 140px;" />
+                         <a id="espConnectBtn" class="btn btn-success" href="#"><span id="espConnectStatus">Connect</span></a>
+                         <a id="espDisconnectBtn" class="btn btn-danger" href="#" style="display: none;" onclick="stopWS();">Disconnect</a>
+                       </div>
+                       <hr>
+                       <h4>Scan Wifi</h4>
+                       <p>Specify the subnet in <code>0.0.0.*</code> format</p>
+                       <div class="input-group">
+                           <span class="input-group-addon"><i class="fa fa-fw fa-wifi"></i></span>
+                           <input id="wifisubnet1" style="border-right: none;" type="text" class="form-control" maxlength="3" placeholder="192" style="width: 60px;" />
+                           <span id="basic-addon2" style="padding: 0px; border-left: none; border-right: none; background: #fff; cursor: arrow;" class="input-group-addon">.</span>
+                           <input id="wifisubnet2" style="border-left: none; border-right: none;" type="text" class="form-control" maxlength="3" placeholder="168" style="width: 60px;" />
+                           <span id="basic-addon2" style="padding: 0px; border-left: none; border-right: none; background: #fff; cursor: arrow;" class="input-group-addon">.</span>
+                           <input id="wifisubnet3" style="border-left: none; border-right: none;" type="text" class="form-control" maxlength="3" placeholder="137" style="width: 60px;" />
+                           <span id="basic-addon2" style="padding: 0px; border-left: none;  background: #fff; cursor: arrow; width: 60px;" class="input-group-addon">. &nbsp; <b>*</b></span>
+                           <span class="input-group-btn"><button id="scanwifi" class="btn btn-primary">Scan</button></span>
+                       </div>
+                       <p>
+                       <div class="progress">
+                         <div id="progress" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%; height: 32px;">
+                           60%
+                         </div>
+                       </div>
+
+                       <div id="scannumberwifi"></div>
+                       <hr />
+                       <div id="foundIpwifi"></div>
+                     </div>
+                   </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="row">
+            <div class="col-sm-12 col-md-12">
+              <div class="dash-unit">
+                <dtitle>Printer Monitor</dtitle>
+                <hr>
+                <span class="badge badge-default badge-warn" title="Items in Queue" id="syncstatus" style="margin-right: 5px;">Socket Closed</span>
+                <span class="badge badge-default badge-notify" title="Items in Queue" id="machineStatus" style="margin-right: 5px;">Not Connected</span>
+                <span class="badge badge-default badge-notify" title="Items in Queue" id="queueCnt" style="margin-right: 5px;">Queued: 0</span>
+                <ul class="nav nav-tabs" role="tablist">
+                   <li role="presentation" class="active"><a href="#temps" aria-controls="connections" role="tab" data-toggle="tab">Temps</a></li>
+                   <li role="presentation"><a href="#jog" aria-controls="wifi" role="tab" data-toggle="tab">Jog</a></li>
+                   <li role="presentation"><a href="#extrude" aria-controls="wifi" role="tab" data-toggle="tab">Extrude</a></li>
+                 </ul>
+
+                 <!-- Tab panes -->
+                 <div class="tab-content">
+                   <div role="tabpanel" class="tab-pane" id="extrude">
+                     <br>
+                     <div class="input-group btn-group">
+                       <input id="extrudelength" class="form-control" value="5"></input>
+                       <span class="input-group-addon">mm @</span>
+                        <input id="extrudespeed" class="form-control" value="100"></input>
+                        <span class="input-group-addon">mm/min</span>
+                      </div>
+                      <div class="btn-group btn-group-justified">
+                        <a class="btn btn-primary" type="button" id="extrudebtn">
+                            <i class="fa fa-arrow-down" aria-hidden="true"></i>Extrude
+                        </a>
+                        <a class="btn btn-primary" type="button" id="retractbtn">
+                            <i class="fa fa-arrow-up" aria-hidden="true"></i>Retract
+                        </a>
+                   </div>
+
+                   </div>
+                   <div role="tabpanel" class="tab-pane" id="jog">
+                     <br>
+                     <center>
+                     <table style="max-width: 250px;">
+                       <tr>
+                           <td></td>
+                           <td>
+                               <button id="yP" type="button" data-title="Jog Y+" class="btn btn-ctl btn-default">
+                                   <span class="fa-stack fa-1x">
+                                       <i class="fa fa-arrow-up fa-stack-1x"></i>
+                                       <strong class="fa-stack-1x icon-top-text">Y+</strong>
+                                       <strong class="fa-stack-1x stepsizeval icon-bot-text">10mm</strong>
+                                   </span>
+                               </button>
+                           </td>
+                           <td></td>
+                           <td></td>
+                           <td>
+                               <button id="zP" type="button" data-title="Jog X+" class="btn btn-ctl btn-default">
+                                   <span class="fa-stack fa-1x"><i class="fa fa-arrow-up fa-stack-1x"></i>
+                                       <strong class="fa-stack-1x icon-top-text">Z+</strong>
+                                       <strong class="fa-stack-1x stepsizeval icon-bot-text">10mm</strong>
+                                   </span>
+                               </button>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td>
+                               <button id="xM" type="button" data-title="Jog X-" class="btn btn-ctl btn-default">
+                                   <span class="fa-stack fa-1x">
+                                       <i class="fa fa-arrow-left fa-stack-1x"></i>
+                                       <strong class="fa-stack-1x icon-top-text">X-</strong>
+                                       <strong class="fa-stack-1x stepsizeval icon-bot-text">10mm</strong>
+                                   </span>
+                               </button>
+                           </td>
+                           <td>
+                               <button id="yM" type="button" data-title="Jog Y-" class="btn btn-ctl btn-default">
+                                   <span class="fa-stack fa-1x">
+                                       <i class="fa fa-arrow-down fa-stack-1x"></i>
+                                       <strong class="fa-stack-1x icon-top-text">Y-</strong>
+                                       <strong class="fa-stack-1x stepsizeval icon-bot-text">10mm</strong>
+                                   </span>
+                               </button>
+                           </td>
+                           <td>
+                               <button id="xP" type="button" data-title="Jog X+" class="btn btn-ctl btn-default">
+                                   <span class="fa-stack fa-1x">
+                                       <i class="fa fa-arrow-right fa-stack-1x"></i>
+                                       <strong class="fa-stack-1x icon-top-text">X+</strong>
+                                       <strong class="fa-stack-1x stepsizeval icon-bot-text">10mm</strong>
+                                   </span>
+                               </button>
+                           </td>
+                           <td>
+                               <div style="width: 8px;"></div>
+                           </td>
+                           <td>
+                               <button id="zM" type="button" data-title="Jog X+" class="btn btn-ctl btn-default">
+                                   <span class="fa-stack fa-1x">
+                                       <i class="fa fa-arrow-down fa-stack-1x"></i>
+                                       <strong class="fa-stack-1x icon-top-text">Z-</strong>
+                                       <strong class="fa-stack-1x stepsizeval icon-bot-text">10mm</strong>
+                                   </span>
+                               </button>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td colspan="5">
+                               <br />
+                               <div class="input-group">
+                                   <span class="input-group-addon">X/Y</span>
+                                   <input id="jogfeedxy" type="text" class="form-control numpad input-sm" value="30" />
+                                   <span class="input-group-addon">Z</span>
+                                   <input id="jogfeedz" type="text" class="form-control numpad  input-sm" value="5" />
+                                   <span class="input-group-addon">mm/s</span>
+                               </div>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td colspan="5">
+                             <br />
+                             <center>
+                               <form id="stepsize">
+                                   <div data-toggle="buttons">
+                                       <label class="btn btn-jog btn-default">
+                                           <input type="radio" name="stp" value="0.1" />
+                                           <span class="fa-stack fa-1x"><i class="fa fa-arrows-h fa-stack-1x"></i>
+                                               <strong class="fa-stack-1x icon-top-text">jog by</strong>
+                                               <strong class="fa-stack-1x icon-bot-text">0.1mm</strong>
+                                           </span>
+                                       </label>
+                                       <label class="btn btn-jog btn-default">
+                                           <input type="radio" name="stp" value="1" />
+                                           <span class="fa-stack fa-1x">
+                                               <i class="fa fa-arrows-h fa-stack-1x"></i>
+                                               <strong class="fa-stack-1x icon-top-text">jog by</strong>
+                                               <strong class="fa-stack-1x icon-bot-text">1mm</strong>
+                                           </span>
+                                       </label>
+                                       <label class="btn btn-jog btn-default">
+                                           <input type="radio" name="stp" value="10" />
+                                           <span class="fa-stack fa-1x">
+                                               <i class="fa fa-arrows-h fa-stack-1x"></i>
+                                               <strong class="fa-stack-1x icon-top-text">jog by</strong>
+                                               <strong class="fa-stack-1x icon-bot-text">10mm</strong>
+                                           </span>
+                                       </label>
+                                       <label class="btn btn-jog btn-default">
+                                           <input type="radio" name="stp" value="100" />
+                                           <span class="fa-stack fa-1x">
+                                               <i class="fa fa-arrows-h fa-stack-1x"></i>
+                                               <strong class="fa-stack-1x icon-top-text">jog by</strong>
+                                               <strong class="fa-stack-1x icon-bot-text">100mm</strong>
+                                           </span>
+                                       </label>
+                                   </div>
+                               </form><!-- #stepsize -->
+                             </center>
+                           </td>
+                       </tr>
+                     </table>
+                   </center>
+
+                   </div>
+                   <div role="tabpanel" class="tab-pane active" id="temps">
+                     <div id="tempstatus"><i class="fa fa-fw fa-thermometer-empty" aria-hidden="true" style="color: #5555ff;"></i><dtitle>not connected</dtitle></div>
+                     <div id="monitor" style="width:95%;height:140px; display:block;"></div>
+                     <center>
+                       <table id="tempcontrol">
+                         <tr>
+                           <td><img src="images/t0.svg">&nbsp;</td>
+                           <td>
+                             <div class="input-group">
+                               <input type="text" class="form-control input-sm" size="4" id="t1val" value="210"></input>
+                               <span class="input-group-addon" id="basic-addon1">&deg;C</span>
+                             </div>
+                           </td>
+                           <td>
+                             <div class="switch switch-red">
+                               <input type="radio" class="switch-input" name="t1control" value="t1on" id="t1on" checked="">
+                               <label for="t1on" class="switch-label switch-label-off">Off</label>
+                               <input type="radio" class="switch-input" name="t1control" value="t1off" id="t1off">
+                               <label for="t1off" class="switch-label switch-label-on">On</label>
+                               <span class="switch-selection"></span>
+                             </div>
+                           </td>
+                         </tr>
+                         <tr id="t2row" style="display:none;">
+                           <td><img src="images/t1.svg">&nbsp;</td>
+                           <td>
+                             <div class="input-group">
+                               <input type="text" class="form-control input-sm" size="4" id="t2val" value="210"></input>
+                               <span class="input-group-addon" id="basic-addon1">&deg;C</span>
+                             </div>
+                           </td>
+                           <td>
+                             <div class="switch switch-green">
+                               <input type="radio" class="switch-input" name="t2control" value="t2on" id="t2on" checked="">
+                               <label for="t2on" class="switch-label switch-label-off">Off</label>
+                               <input type="radio" class="switch-input" name="t2control" value="t2off" id="t2off">
+                               <label for="t2off" class="switch-label switch-label-on">On</label>
+                               <span class="switch-selection"></span>
+                             </div>
+                           </td>
+                         </tr>
+                         <tr>
+                           <td><img src="images/bed.svg">&nbsp;</td>
+                           <td>
+                             <div class="input-group">
+                               <input type="text" class="form-control input-sm" size="4" id="bedval" value="90"></input>
+                               <span class="input-group-addon" id="basic-addon1">&deg;C</span>
+                             </div>
+                           </td>
+                           <td>
+                             <div class="switch switch-blue">
+                               <input type="radio" class="switch-input" name="bedcontrol" value="bed1on" id="bed1on" checked="">
+                               <label for="bed1on" class="switch-label switch-label-off">Off</label>
+                               <input type="radio" class="switch-input" name="bedcontrol" value="bed1off" id="bed1off">
+                               <label for="bed1off" class="switch-label switch-label-on">On</label>
+                               <span class="switch-selection"></span>
+                             </div>
+                           </td>
+                         </tr>
+                         <tr>
+                           <td><img src="images/fan.svg">&nbsp;</td>
+                           <td>
+                             <div class="input-group">
+                               <input type="text" class="form-control input-sm" size="4" id="fanval" value="100"></input>
+                               <span class="input-group-addon" id="basic-addon1">%</span>
+                             </div>
+                           </td>
+                           <td>
+                             <div class="switch switch-yellow">
+                               <input type="radio" class="switch-input" name="fancontrol" value="fan1on" id="fan1on" checked="">
+                               <label for="fan1on" class="switch-label switch-label-off">Off</label>
+                               <input type="radio" class="switch-input" name="fancontrol" value="fan1off" id="fan1off">
+                               <label for="fan1off" class="switch-label switch-label-on">On</label>
+                               <span class="switch-selection"></span>
+                             </div>
+                           </td>
+                         </tr>
+                       </table>
+                     </center>
+                   </div>
+
+
+          </div>
+
+         </div>
+       </div>
+        </div>
+        </div> <!-- End of left column -->
+        <div class="col-sm-7 col-md-9">
+          <div class="row">
+            <div class="dash-unit">
+
+              <!-- <span id="openbutton" class="btn btn-primary btn-lg btn-file" title="Open a png, .jpg, .jpeg, .bmp, .gcode, .tap, .nc, .gc, .svg, .dxf, or .stl file">
+                  <i class="fa fa-folder-open fa-fw"></i> Open
+                  <input id="filebtn" type="file" accept=".png,.jpg,.jpeg,.bmp,.gcode,.g,.svg,.dxf,.stl,.tap,.gc,.nc" multiple />
+              </span> -->
+
+
+                <span class="btn btn-jog btn-default btn-file" id="filespan">
+                      <span class="fa-stack fa-1x">
+                        <i class="fa fa-folder-open-o fa-stack-1x"></i>
+                        <strong class="fa-stack-1x icon-top-text">Open</strong>
+                        <strong class="fa-stack-1x icon-bot-text">File</strong>
+                    </span>
+                    <input id="filebtn" type="file" accept=".png,.jpg,.jpeg,.bmp,.gcode,.g,.svg,.dxf,.stl,.tap,.gc,.nc" multiple />
+                </span>
+                <button class="btn btn-jog btn-default" onclick="runjob();">
+                    <span class="fa-stack fa-1x">
+                        <i class="fa fa-play fa-stack-1x"></i>
+                        <strong class="fa-stack-1x icon-top-text">Print</strong>
+                        <strong class="fa-stack-1x icon-bot-text">Job</strong>
+                    </span>
+                </button>
+                <button class="btn btn-jog btn-default" onclick="sdupload();">
+                    <span class="fa-stack fa-1x">
+                        <i class="fa fa-upload fa-stack-1x"></i>
+                        <strong class="fa-stack-1x icon-top-text">Upload</strong>
+                        <strong class="fa-stack-1x icon-bot-text">To SD</strong>
+                    </span>
+                </button>
+                <button class="btn btn-jog btn-default" onclick="stopjob();">
+                    <span class="fa-stack fa-1x">
+                        <i class="fa fa-stop fa-stack-1x"></i>
+                        <strong class="fa-stack-1x icon-top-text">Abort</strong>
+                        <strong class="fa-stack-1x icon-bot-text">Job</strong>
+                    </span>
+                </button>
+                <button class="btn btn-jog btn-default" onclick="sendGcode('G28')">
+                    <span class="fa-stack fa-1x">
+                        <i class="fa fa-home fa-stack-1x"></i>
+                        <strong class="fa-stack-1x icon-top-text">Home</strong>
+                        <strong class="fa-stack-1x icon-bot-text">XYZ</strong>
+                    </span>
+                </button>
+            </div>
+            <div class="dash-unit">
+              <dtitle>3D Viewer</dtitle>
+              <hr>
+                <div id="renderArea"></div>
+                <!-- <textarea id="gcodepreview" spellcheck="false" style="width: 100%; height: 80px; display:none;" disabled></textarea> -->
+              <hr>
+              <div id="console"></div>
+              <div class="input-group btn-group" style="margin-left: 10px;">
+                  <span class="input-group-addon"><i class="fa fa-terminal fa-lg"></i></span>
+                  <input id="command" type="text" autocomplete="on" class="form-control numpadgcode" />
+                  <span class="input-group-btn">
+                      <button id="sendCommand" class="btn btn-default" type="button">
+                          <i class="fa fa-play" style="margin-right: 10px;"></i> Send
+                      </button>
+                      <button class="emptylog btn btn-default" type="button" onclick="$('#console').empty();">
+                          <i class="fa fa-trash"></i>
+                      </button>
+                  </span>
+              </div>
+            </div>
+          </div>
+        </div> <!-- End Big col -->
+      </div>
+	  </div> <!-- /container -->
+
+    <div id="draganddrop" style="display: none;">
+        <div class="well">Drop File(s) Here!</div>
+        <img src="images/draganddrop.svg" />
+    </div><!-- #draganddrop -->
+
+
+
+    <!-- SD Upload Modal -->
+    <div class="modal fade" id="sdModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">SD Upload</h4>
+          </div>
+          <div class="modal-body">
+          <form class="form-inline">
+            <div class="input-group btn-group">
+              <span class="input-group-addon uploadprogress" style="display:none;"><i class="fa fa-spinner fa-pulse fa-fw"></i>Uploading... Please Wait...</span>
+              <span class="input-group-addon upload"><i class="fa fa-upload" aria-hidden="true"></i></span>
+              <select id="drives2" class="form-control upload">
+                  <option value="" disabled>Select Drive...</option>
+              </select>
+              <span class="input-group-addon  upload">/</span>
+              <input id="sdfilename" class="form-control  upload"></input>
+              <span class="input-group-btn">
+                <a id="uploadbtn" class="btn btn-success" href="#" onclick="sduploadaction();">Upload</a>
+              </span>
+            </div>
+            </form>
+            <hr>
+            <textarea id="gcodepreview" spellcheck="false" style="width: 100%; height: 80px; display:none;" disabled></textarea>
+           </div>
+           <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Work Offline</button>
+            <button type="button" class="btn btn-success" disabled>Connect</button> -->
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- SD Upload Modal -->
+    <div class="modal fade" id="configModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">View Config</h4>
+          </div>
+          <div class="modal-body">
+            <table class="table small">
+              <thead>
+                <tr>
+                  <th>Enabled</th>
+                  <th>Name</th>
+                  <th>Value</th>
+                  <th>Comment</th>
+                </tr>
+              </thead>
+              <tbody id="configlitems">
+            </table>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+</body>
+
+
+
+</html>
+-

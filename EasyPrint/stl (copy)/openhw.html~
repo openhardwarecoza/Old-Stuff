@@ -1,0 +1,29 @@
+ <script src="Three.js"></script>
+    <script src="plane.js"></script>
+    <script src="thingiview.js"></script>
+
+    <script>
+      window.onload = function() {
+        thingiurlbase = ".";
+        thingiview = new T <script src="/javascripts/Three.js"></script>
+    <script src="plane.js"></script>
+    <script src="thingiview.js"></script>
+
+    <script>
+      window.onload = function() {
+        thingiurlbase = "/javascripts";
+        thingiview = new Thingiview("viewer");
+        thingiview.setObjectColor('#CC0000');
+        thingiview.initScene();
+        thingiview.loadSTL("./cube.stl");
+      }
+    </script>
+
+    <div id="viewer" style="width:300px;height:300px"></div>
+        thingiview.setObjectColor('#C0D8F0');
+        thingiview.initScene();
+        thingiview.loadSTL("cube.stl");
+      }
+    </script>
+
+    <div id="viewer" style="width:300px;height:300px"></div>

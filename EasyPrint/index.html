@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>EasyPrint by OpenHardware.co.za</title>
+<style>
+body{
+background-color: black;
+color: white;
+}
+a{
+color: white;
+}
+
+* {margin:0;padding:0}
+/* mac hide \*/
+html,body{height:100%;width:100%;}
+/* end hide */
+body { 
+background-color: #000000;
+text-align:center;
+min-height:468px;/* for good browsers*/
+min-width:552px;/* for good browsers*/
+}
+#outer{
+height:100%;
+width:100%;
+display:table;
+vertical-align:middle;
+}
+#container {
+text-align: center;
+position:relative;
+vertical-align:middle;
+display:table-cell;
+height: 468px;
+} 
+#inner {
+width: 552px;
+background:black;
+height: 200px;
+text-align: center;
+padding-top: 40px;
+margin-left:auto;
+margin-right:auto;
+border:1px solid #FFF;
+}
+input {
+font-family: verdana;
+font-size: 20px;
+}
+
+button {
+font-family: verdana;
+font-size: 20px;
+padding: 10px;
+}
+
+#logo {
+padding-top: 50px;
+padding-left: 50px;
+
+text-align: center;
+position:absolute;
+vertical-align:top;
+display:table-cell;
+height: 126px;
+} 
+
+
+</style>
+</head>
+
+<body>
+<div id="outer">
+<div id="logo">
+<img src="/logo_inv.jpg">
+</div>
+<div id="container">
+<div id="inner">
+<form action="./stl/process.php" method="post" enctype="multipart/form-data">
+   <p>
+	  <input type="file" name="userfile" id="file"> <br />&nbsp;<br />&nbsp;<br />
+      <button>Upload and Preview</button>
+   <p>
+</form>
+   </div>
+</div>
+</div>
+</form>

@@ -1,0 +1,72 @@
+Partlist
+
+Exported from RAMPS_1-3i.brd at 5/23/11 1:47 PM
+
+EAGLE Version 5.11.0 Copyright (c) 1988-2010 CadSoft
+
+Part     Value               Package             Library          Position (mil)        Orientation
+
+5V                           1X01                adafruit         (800 624)             R0
+A-OUT                        1X04                RepRapjr         (2131.248 531.252)    R0
+C1       10uF                E2,5-5              adafruit         (3530 1981)           R90
+C4       100nF               C2.5-3              capacitor-wima   (1175 1100)           R270
+C5       10uF                E2,5-5              adafruit         (3130 1981)           R90
+C6       470uF               E3,5-8              adafruit         (1112.5 1493.748)     R0
+C8       10uF                E2,5-5              adafruit         (3330 1981)           R90
+D1       1N4004              DO41-10             diode            (1857.724 1054.516)   R45
+D2       1N4004              DO41-10             diode            (1050 1000)           R270
+E0-MOT                       1X04                RepRapjr         (1624.996 2400.004)   R0
+E1-MOT                       1X04                RepRapjr         (2425 2400.004)       R0
+F1       MFR500              MFR500              RepRapjr         (881.252 1200)        R270
+F2       MFR1100             MFR1100             RepRapjr         (743.748 1268.748)    R90
+I2C                          1X04                RepRapjr         (3525 2318.752)       R90
+JP2                          2X03                pinhead          (1675 1849.996)       R0
+JP3                          2X03                pinhead          (2375 1849.996)       R0
+JP4                          2X03                pinhead          (1500 950)            R0
+JP5                          2X03                pinhead          (2300 950)            R0
+JP6                          2X03                pinhead          (3050 950)            R0
+JP7                          1X06                SparkFun         (3062.496 1756.248)   R0
+LED1                         LED3MM              led              (350 2543.748)        R270
+PS-ON                        1X01                adafruit         (800 724)             R0
+Q1       STP55NF06L          TO220BV             transistor-power (968.744 2250)        R180
+Q2       STP55NF06L          TO220BV             transistor-power (924.996 1974.996)    R180
+Q3       STP55NF06L          TO220BV             transistor-power (925 1775.004)        R180
+R1       4.7K                0207/7              adafruit         (2825 2008.315)       R180
+R2       100k                0207/7              adafruit         (1323.453 2055.78)    R0
+R3       100k                0207/7              adafruit         (2091.244 1967.075)   R125
+R4       100k                0207/7              adafruit         (1323.453 1958)       R0
+R5       100k                0207/7              adafruit         (1300 1049.996)       R90
+R6       100k                0207/7              adafruit         (1321.953 1855.941)   R0
+R7       4.7K                0207/7              adafruit         (2825 1804.48)        R180
+R8       100k                0207/7              adafruit         (2102.5 1052.5)       R90
+R9       100k                0207/7              adafruit         (1241.031 2392.72)    R315
+R10      100k                0207/7              adafruit         (2850 1050)           R90
+R11      4.7K                0207/7              adafruit         (2825 1906.244)       R180
+R12      1K                  0207/7              adafruit         (887.5 2468.752)      R0
+SER1                         3PIN-HEADER         ultimachine      (1349.996 531.252)    R0
+SER2                         3PIN-HEADER         ultimachine      (1350 431.248)        R0
+SER3                         3PIN-HEADER         ultimachine      (1681.248 531.252)    R0
+SER4                         3PIN-HEADER         ultimachine      (1681.248 431.248)    R0
+SERIAL                       1X04                RepRapjr         (2131.248 431.248)    R0
+U$1      FSMRACD             FSMRACD             RepRapjr         (900 575)             R0
+U$2      282837-6            282837-6            RepRapjr         (525 1850)            R0
+U$3      M04X2               2X4                 SparkFun         (3481.248 481.252)    R180
+U$4      A4988BREAKOUT       A4988BREAKOUT       RepRapjr         (1275 2150)           R0
+U$5      A4988BREAKOUT       A4988BREAKOUT       RepRapjr         (2175 2150)           R0
+U$6      A4988BREAKOUT       A4988BREAKOUT       RepRapjr         (1300.004 1250)       R0
+U$7      A4988BREAKOUT       A4988BREAKOUT       RepRapjr         (2100 1250)           R0
+U$8      A4988BREAKOUT       A4988BREAKOUT       RepRapjr         (2900 1250)           R0
+U$9      M18_                1X18                SparkFun         (3900 900)            R90
+U$10     M05X2               2X5                 RepRapjr         (2800 481.252)        R0
+U1       ARDUINO_MEGA_SHIELD ARDUINO_MEGA_SHIELD RepRapjr         (0 600)               R0
+X+                           3PIN-HEADER         ultimachine      (3025 2318.748)       R270
+X-                           3PIN-HEADER         ultimachine      (2925 2318.748)       R270
+X-MOT                        1X04                RepRapjr         (1650 1499.992)       R0
+X4       MSTBA4              MSTBA4              con-phoenix-508  (87.5 818.752)        R270
+Y+                           3PIN-HEADER         ultimachine      (3225 2318.748)       R270
+Y-                           3PIN-HEADER         ultimachine      (3125 2318.748)       R270
+Y-MOT                        1X04                RepRapjr         (2450 1499.996)       R0
+Z+                           3PIN-HEADER         ultimachine      (3425 2318.748)       R270
+Z-                           3PIN-HEADER         ultimachine      (3325 2318.748)       R270
+Z-MOT                        1X04                RepRapjr         (3150 1500)           R0
+Z-MOT1                       1X04                RepRapjr         (3150 1400)           R0

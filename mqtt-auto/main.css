@@ -1,0 +1,24 @@
+body {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    padding-top: 55px;
+}
+
+#console {
+    height: 110px;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: none;
+    text-align: left;
+    background-color: #fff;
+    padding: 5px;
+    font-size: 10px;
+    padding-left: 20px;
+    /*word-break: break-all;*/
+    white-space:normal;
+    border-left: dashed 1px #aaa;
+    /*border-top: dashed 1px #aaa;*/
+    /*border-bottom: dashed 1px #aaa;*/
+    margin-top: 5px;
+}

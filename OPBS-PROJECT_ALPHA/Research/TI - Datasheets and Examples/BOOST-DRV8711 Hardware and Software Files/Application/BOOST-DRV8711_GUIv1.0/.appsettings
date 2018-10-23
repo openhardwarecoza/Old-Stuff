@@ -1,0 +1,9 @@
+{"default": {
+    "connection": "UARTConnection",
+    "deviceFilter": "MSP430.*",
+    "program": "appProgram.out",
+    "device": "MSP430G2553",
+    "connectionFilter": "UART.*",
+    "comportFilter": "MSP.*",
+    "baudrate": "9600"
+}}

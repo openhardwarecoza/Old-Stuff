@@ -1,0 +1,795 @@
+{"widgetBindings": [
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_RESET",
+        "widgetId": "RESET",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_STEP_AIN1",
+        "widgetId": "widget_33",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_DIR_AIN2",
+        "widgetId": "DIR_AIN2",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_BIN1",
+        "widgetId": "widget_35",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_BIN2",
+        "widgetId": "widget_36",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "selection",
+        "serverBindName": "G_DIR_AIN2",
+        "widgetId": "widget_27",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "selection",
+        "serverBindName": "G_BIN1",
+        "widgetId": "BIN1_IND",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "selection",
+        "serverBindName": "G_DIR_AIN2",
+        "widgetId": "DIR_AIN2_IND",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "selection",
+        "serverBindName": "G_STEP_AIN1",
+        "widgetId": "STEP_AIN1_IND",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "selection",
+        "serverBindName": "G_RESET",
+        "widgetId": "RESET_IND",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "selection",
+        "serverBindName": "G_BIN2",
+        "widgetId": "BIN2_IND",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_BIN2",
+        "widgetId": "BIN2",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_BIN1",
+        "widgetId": "BIN1",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_STEP_AIN1",
+        "widgetId": "STEP_AIN1",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_nSLEEP",
+        "widgetId": "nSLEEP",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "selection",
+        "serverBindName": "G_nSLEEP",
+        "widgetId": "nSLEEP_IND",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_CTRL_REG.DTIME",
+        "widgetId": "widget_1",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_CTRL_REG.ISGAIN",
+        "widgetId": "widget_2",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_CTRL_REG.EXSTALL",
+        "widgetId": "widget_15",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_CTRL_REG.MODE",
+        "widgetId": "widget_21",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_MOTOR_STATE",
+        "widgetId": "widget_33",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_CTRL_REG.RDIR",
+        "widgetId": "widget_37",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_CTRL_REG.ENBL",
+        "widgetId": "widget_42",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_MOTOR_STATE",
+        "widgetId": "widget_27",
+        "options": {"dataType": "String"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_OFF_REG.PWMMODE",
+        "widgetId": "widget_41",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "disabled",
+        "serverBindName": "~G_OFF_REG.PWMMODE",
+        "widgetId": "BIN1",
+        "options": {"dataType": "boolean"}
+    },
+    {
+        "propertyName": "disabled",
+        "serverBindName": "~G_OFF_REG.PWMMODE",
+        "widgetId": "BIN2",
+        "options": {"dataType": "boolean"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_BLANK_REG.ABT",
+        "widgetId": "widget_65",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_DECAY_REG.TDECAY",
+        "widgetId": "widget_93",
+        "options": {"dataType": "Double"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_STALL_REG.VDIV",
+        "widgetId": "widget_3",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_STALL_REG.SDCNT",
+        "widgetId": "widget_17",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_STALL_REG.SDTHR",
+        "widgetId": "widget_22",
+        "options": {"dataType": "Double"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_DRIVE_REG.IDRIVEP",
+        "widgetId": "widget_36",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_DRIVE_REG.IDRIVEN",
+        "widgetId": "widget_60",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_DRIVE_REG.OCPDEG",
+        "widgetId": "widget_86",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_DRIVE_REG.OCPTH",
+        "widgetId": "widget_88",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_CTRL_REG.ENBL",
+        "widgetId": "widget_113",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "selection",
+        "serverBindName": "G_CTRL_REG.ENBL",
+        "widgetId": "widget_114",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_CTRL_REG.DTIME",
+        "widgetId": "DTIME",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_CTRL_REG.ISGAIN",
+        "widgetId": "ISGAIN",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_CTRL_REG.EXSTALL",
+        "widgetId": "EXSTALL",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_CTRL_REG.MODE",
+        "widgetId": "MODE",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_CTRL_REG.RSTEP",
+        "widgetId": "RSTEP",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_CTRL_REG.RDIR",
+        "widgetId": "RDIR",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_CTRL_REG.ENBL",
+        "widgetId": "ENBL",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_TORQUE_REG.SIMPLTH",
+        "widgetId": "SIMPLTH",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_TORQUE_REG.TORQUE",
+        "widgetId": "TORQUE",
+        "options": {"dataType": "Double"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_OFF_REG.PWMMODE",
+        "widgetId": "PWMMODE",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_OFF_REG.TOFF",
+        "widgetId": "TOFF",
+        "options": {"dataType": "Double"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_BLANK_REG.TBLANK",
+        "widgetId": "TBLANK",
+        "options": {"dataType": "Double"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_DECAY_REG.TDECAY",
+        "widgetId": "TDECAY",
+        "options": {"dataType": "Double"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_STALL_REG.VDIV",
+        "widgetId": "VDIV",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_STALL_REG.SDCNT",
+        "widgetId": "SDCNT",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_STALL_REG.SDTHR",
+        "widgetId": "SDTHR",
+        "options": {"dataType": "Double"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_DRIVE_REG.OCPTH",
+        "widgetId": "OCPTH",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_DRIVE_REG.IDRIVEP",
+        "widgetId": "IDRIVEP",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_DRIVE_REG.IDRIVEN",
+        "widgetId": "IDRIVEN",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_DRIVE_REG.TDRIVEP",
+        "widgetId": "TDRIVEP",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_DRIVE_REG.TDRIVEN",
+        "widgetId": "TDRIVEN",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_DRIVE_REG.OCPDEG",
+        "widgetId": "OCPDEG",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_BLANK_REG.ABT",
+        "widgetId": "ABT",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_DECAY_REG.DECMOD",
+        "widgetId": "DECMOD",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "selection",
+        "serverBindName": "G_nFAULT",
+        "widgetId": "nFAULT_B",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "selection",
+        "serverBindName": "G_nSTALL",
+        "widgetId": "nLOCK_B",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "selection",
+        "serverBindName": "G_nSTALL",
+        "widgetId": "nSTALL_B",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "selection",
+        "serverBindName": "G_nSLEEP",
+        "widgetId": "nSLEEP_B",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "selection",
+        "serverBindName": "G_RESET",
+        "widgetId": "RESET_B",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_STEP_AIN1",
+        "widgetId": "STEP_AIN1_BUT",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_DIR_AIN2",
+        "widgetId": "DIR_AIN2_BUT",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_RESET",
+        "widgetId": "RESET_BUT",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_BIN1",
+        "widgetId": "BIN1_BUT",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_BIN2",
+        "widgetId": "BIN2_BUT",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "selection",
+        "serverBindName": "G_BIN2",
+        "widgetId": "BIN2_B",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "selection",
+        "serverBindName": "G_BIN1",
+        "widgetId": "BIN1_B",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "selection",
+        "serverBindName": "G_DIR_AIN2",
+        "widgetId": "DIR_AIN2_B",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "selection",
+        "serverBindName": "G_STEP_AIN1",
+        "widgetId": "STEP_AIN1_B",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_BYPASS_INDEXER",
+        "widgetId": "BYP_IND_C",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_STARTING_SPEED",
+        "widgetId": "START_SPEED",
+        "options": {"dataType": "Double"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_TARGET_SPEED",
+        "widgetId": "TARGET_SPEED",
+        "options": {"dataType": "Double"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_ACCEL_RATE",
+        "widgetId": "ACCEL_RATE",
+        "options": {"dataType": "Double"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_NUM_STEPS",
+        "widgetId": "widget_57",
+        "options": {"dataType": "Double"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_STEPS_TO_STOP",
+        "widgetId": "widget_58",
+        "options": {"dataType": "Double"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_TOTAL_NUM_STEPS",
+        "widgetId": "NUM_STEPS",
+        "options": {"dataType": "Double"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_STEP_PROFILE",
+        "widgetId": "MOVE_STEPS_BUT",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "disabled",
+        "serverBindName": "G_IS_MOTOR_MOVING",
+        "widgetId": "START_SPEED",
+        "options": {"dataType": "boolean"}
+    },
+    {
+        "propertyName": "disabled",
+        "serverBindName": "G_SPEED_PROFILE_LOCK",
+        "widgetId": "ACCEL_RATE",
+        "options": {"dataType": "boolean"}
+    },
+    {
+        "propertyName": "disabled",
+        "serverBindName": "G_STEP_PROFILE_LOCK",
+        "widgetId": "NUM_STEPS",
+        "options": {"dataType": "boolean"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_SPEED_PROFILE",
+        "widgetId": "START_STOP_BUT",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "selection",
+        "serverBindName": "G_SPEED_PROFILE",
+        "widgetId": "START_STOP_B",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "selection",
+        "serverBindName": "G_STEP_PROFILE",
+        "widgetId": "MOVE_STEPS_B",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "disabled",
+        "serverBindName": "G_STEP_PROFILE_LOCK",
+        "widgetId": "START_STOP_BUT",
+        "options": {"dataType": "boolean"}
+    },
+    {
+        "propertyName": "disabled",
+        "serverBindName": "G_SPEED_PROFILE_LOCK",
+        "widgetId": "MOVE_STEPS_BUT",
+        "options": {"dataType": "boolean"}
+    },
+    {
+        "propertyName": "visible",
+        "serverBindName": "G_BYPASS_INDEXER",
+        "widgetId": "BIN1_BUT",
+        "options": {"dataType": "boolean"}
+    },
+    {
+        "propertyName": "visible",
+        "serverBindName": "G_BYPASS_INDEXER",
+        "widgetId": "BIN2_BUT",
+        "options": {"dataType": "boolean"}
+    },
+    {
+        "propertyName": "visible",
+        "serverBindName": "G_BYPASS_INDEXER",
+        "widgetId": "BIN1_B",
+        "options": {"dataType": "boolean"}
+    },
+    {
+        "propertyName": "visible",
+        "serverBindName": "G_BYPASS_INDEXER",
+        "widgetId": "BIN2_B",
+        "options": {"dataType": "boolean"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_START_STOP_SPEED",
+        "widgetId": "START_STOP_SPEED",
+        "options": {"dataType": "Double"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_CUR_SPEED",
+        "widgetId": "CURRENT_SPEED",
+        "options": {"dataType": "Double"}
+    },
+    {
+        "propertyName": "disabled",
+        "serverBindName": "G_SPEED_PROFILE_LOCK",
+        "widgetId": "START_STOP_SPEED",
+        "options": {"dataType": "boolean"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_CTRL_REG.MODE",
+        "widgetId": "DECAY_MODE",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_DECAY_REG.DECMOD",
+        "widgetId": "STEP_MODE",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_nSLEEP",
+        "widgetId": "nSLEEP_BUT",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_STATUS_REG.STDLAT",
+        "widgetId": "STDLAT",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_STATUS_REG.STD",
+        "widgetId": "STD",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_STATUS_REG.UVLO",
+        "widgetId": "UVLO",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_STATUS_REG.BPDF",
+        "widgetId": "BPDF",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_STATUS_REG.APDF",
+        "widgetId": "APDF",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_STATUS_REG.BOCP",
+        "widgetId": "BOCP",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_STATUS_REG.AOCP",
+        "widgetId": "AOCP",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_STATUS_REG.OTS",
+        "widgetId": "OTS",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_TORQUE_REG.TORQUE",
+        "widgetId": "TORQUE_C",
+        "options": {"dataType": "Double"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_DECAY_REG.DECMOD",
+        "widgetId": "DECAY_MODE_C",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_CTRL_REG.MODE",
+        "widgetId": "STEP_MODE_C",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_WRITE_ALL_REG",
+        "widgetId": "Write_All",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_READ_ALL_REG",
+        "widgetId": "Read_All",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_WRITE_ALL_REG",
+        "widgetId": "widget_22",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_RESET_FAULTS",
+        "widgetId": "Reset_FAULTS",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_WRITE_ADDR",
+        "widgetId": "widget_736",
+        "options": {"dataType": "String"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_READ_ADDR",
+        "widgetId": "widget_740",
+        "options": {"dataType": "String"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_READ_ADDR",
+        "widgetId": "READ_ADDR",
+        "options": {
+            "dataType": "String",
+            "outPreProcessingFunction": "HexToDec",
+            "inPreProcessingFunction": "DecToHex"
+        }
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_WRITE_ADDR",
+        "widgetId": "WRITE_ADDR",
+        "options": {
+            "dataType": "String",
+            "outPreProcessingFunction": "HexToDec",
+            "inPreProcessingFunction": "DecToHex"
+        }
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_WRITE_DATA",
+        "widgetId": "WRITE_DATA",
+        "options": {
+            "dataType": "String",
+            "outPreProcessingFunction": "HexToDec",
+            "inPreProcessingFunction": "DecToHex"
+        }
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_READ_DATA",
+        "widgetId": "READ_DATA",
+        "options": {
+            "dataType": "String",
+            "outPreProcessingFunction": "HexToDec",
+            "inPreProcessingFunction": "DecToHex"
+        }
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_MANUAL_WRITE",
+        "widgetId": "WRITE_BUT",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "checked",
+        "serverBindName": "G_MANUAL_READ",
+        "widgetId": "READ_BUT",
+        "options": {"dataType": "Boolean"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_FIRMWARE_VERSION",
+        "widgetId": "widget_11",
+        "options": {"dataType": "String"}
+    },
+    {
+        "propertyName": "index",
+        "serverBindName": "G_CTRL_REG.ISGAIN",
+        "widgetId": "ISGAIN_C",
+        "options": {"dataType": "Long"}
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_FULL_SCALE_CURRENT",
+        "widgetId": "FULL_SCALE_CURRENT",
+        "options": {
+            "dataType": "String",
+            "inPreProcessingFunction": "RoundTo2Dec"
+        }
+    },
+    {
+        "propertyName": "value",
+        "serverBindName": "G_FIRMWARE_VERSION",
+        "widgetId": "widget_54",
+        "options": {"dataType": "String"}
+    }
+]}
