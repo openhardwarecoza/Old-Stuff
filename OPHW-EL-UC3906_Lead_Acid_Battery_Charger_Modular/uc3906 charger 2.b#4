@@ -21628,6 +21628,8 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <element name="C11" library="rcl" package="E2,5-7" value="" x="96" y="96" rot="R90"/>
 <element name="C13" library="rcl" package="E2,5-7" value="" x="96" y="72" rot="R90"/>
 <element name="R31" library="rcl" package="M1206" value="1K" x="-6.4" y="-11.6"/>
+<element name="T3" library="transistor" package="TO92" value="BC547" x="-6.15" y="-23.65"/>
+<element name="R32" library="adafruit" package="M1206" value="1K" x="-6.4" y="-17.65"/>
 </elements>
 <signals>
 <signal name="DRIVERSINK">
@@ -22223,7 +22225,6 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <wire x1="81.5" y1="42.5" x2="80.1" y2="42.5" width="0.8128" layer="16"/>
 <via x="81.4" y="45.9" extent="1-16" drill="0.6" shape="square"/>
 <contactref element="T2" pad="1"/>
-<contactref element="X1" pad="2"/>
 <via x="60.975" y="22.41" extent="1-16" drill="0.6" shape="square"/>
 <via x="62.275" y="22.41" extent="1-16" drill="0.6" shape="square"/>
 <via x="63.575" y="22.41" extent="1-16" drill="0.6" shape="square"/>
@@ -22301,11 +22302,13 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <via x="37.85" y="20.3" extent="1-16" drill="0.6" shape="square"/>
 <wire x1="33.9" y1="20" x2="37.55" y2="20" width="0.8128" layer="1"/>
 <wire x1="37.55" y1="20" x2="37.85" y2="20.3" width="0.8128" layer="1"/>
+<contactref element="T3" pad="1"/>
 <wire x1="81.3" y1="44.0425" x2="81.4525" y2="43.89" width="0" layer="19" extent="1-1"/>
 <wire x1="59.6" y1="12.5" x2="59.6" y2="12.6" width="0" layer="19" extent="1-1"/>
 <wire x1="81.3425" y1="27.69" x2="81.5" y2="27.8475" width="0" layer="19" extent="1-1"/>
 <wire x1="81.3525" y1="37.3325" x2="80.4675" y2="37.3325" width="0" layer="19" extent="1-1"/>
 <wire x1="81.3425" y1="21.1325" x2="80.3675" y2="21.1325" width="0" layer="19" extent="1-1"/>
+<wire x1="-4.88" y1="-23.65" x2="7.5" y2="12" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="+5V" class="1">
 <contactref element="L1" pad="2"/>
@@ -22723,6 +22726,8 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <wire x1="30.62" y1="56.6" x2="30.51" y2="56.71" width="0.8128" layer="1"/>
 <wire x1="35.45" y1="43.2" x2="37" y2="43.2" width="0.8128" layer="1"/>
 <wire x1="37" y1="43.2" x2="37.4" y2="43.6" width="0.8128" layer="1"/>
+<contactref element="R32" pad="2"/>
+<wire x1="-5" y1="-17.65" x2="35.45" y2="43.2" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="D1PWM">
 <contactref element="U$3" pad="6"/>
@@ -23495,6 +23500,16 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 </signal>
 <signal name="N$35">
 <via x="89.7" y="66.55" extent="1-16" drill="0.6" shape="square"/>
+</signal>
+<signal name="N$36">
+<contactref element="T3" pad="2"/>
+<contactref element="R32" pad="1"/>
+<wire x1="-7.8" y1="-17.65" x2="-6.15" y2="-21.745" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="FANGND">
+<contactref element="X1" pad="2"/>
+<contactref element="T3" pad="3"/>
+<wire x1="-7.42" y1="-23.65" x2="40" y2="56.13" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>

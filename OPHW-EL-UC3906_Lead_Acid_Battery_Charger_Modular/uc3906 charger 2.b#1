@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.4">
+<eagle version="9.0.0">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
+<setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.05" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
@@ -66,7 +67,7 @@
 <layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
 <layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
 <layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
-<layer number="90" name="Modules" color="5" fill="1" visible="no" active="yes"/>
+<layer number="90" name="Modules" color="5" fill="1" visible="no" active="no"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="no" active="no"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="no" active="no"/>
 <layer number="93" name="Pins" color="2" fill="1" visible="no" active="no"/>
@@ -21388,16 +21389,20 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <param name="slThermalsForVias" value="0"/>
 <param name="dpMaxLengthDifference" value="10mm"/>
 <param name="dpGapFactor" value="2.5"/>
-<param name="checkGrid" value="0"/>
 <param name="checkAngle" value="0"/>
 <param name="checkFont" value="1"/>
 <param name="checkRestrict" value="0"/>
+<param name="checkStop" value="0"/>
+<param name="checkValues" value="0"/>
 <param name="useDiameter" value="13"/>
 <param name="maxErrors" value="50"/>
 </designrules>
 <autorouter>
 <pass name="Default">
 <param name="RoutingGrid" value="50mil"/>
+<param name="AutoGrid" value="1"/>
+<param name="Efforts" value="0"/>
+<param name="TopRouterVariant" value="1"/>
 <param name="tpViaShape" value="round"/>
 <param name="PrefDir.1" value="|"/>
 <param name="PrefDir.2" value="0"/>
@@ -21510,20 +21515,20 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <element name="L1" library="inductors" package="DR127" value="DR127" x="71.675" y="20.9875" rot="R90"/>
 <element name="D4" library="semicon-smd-ipc" package="SOD87" value="" x="76.3675" y="6.5875" rot="R270"/>
 <element name="X3" library="con-berg" package="PN87520" value="" x="90.075" y="38.52" rot="R90">
-<attribute name="OC_NEWARK" value="unknown" x="90.075" y="38.52" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MPN" value="" x="90.075" y="38.52" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MF" value="" x="90.075" y="38.52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MPN" value="" x="90.075" y="38.52" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="90.075" y="38.52" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="90.075" y="38.52" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="R12" library="adafruit" package="M1206" value="75K" x="82.81" y="34.0675"/>
 <element name="R13" library="adafruit" package="M1206" value="75K" x="82.81" y="40.61"/>
 <element name="R14" library="adafruit" package="M1206" value="49.9K" x="82.8525" y="43.89"/>
 <element name="R15" library="adafruit" package="M1206" value="49.9K" x="82.7525" y="37.3325"/>
 <element name="X4" library="con-berg" package="PN87520" value="" x="90.075" y="22.2475" rot="R90">
-<attribute name="OC_NEWARK" value="unknown" x="90.075" y="22.2475" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MPN" value="" x="90.075" y="22.2475" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MF" value="" x="90.075" y="22.2475" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MPN" value="" x="90.075" y="22.2475" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="90.075" y="22.2475" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="90.075" y="22.2475" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="R16" library="adafruit" package="M1206" value="75K" x="82.7375" y="17.8675"/>
 <element name="R17" library="adafruit" package="M1206" value="75K" x="82.7375" y="24.41"/>
@@ -21548,10 +21553,10 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <element name="L2" library="inductors" package="DR127" value="DR127" x="58.7" y="52.5" rot="R270"/>
 <element name="D1" library="semicon-smd-ipc" package="SOD87" value="" x="75.5" y="62.5"/>
 <element name="K1" library="relay" package="G5LE" value="G5L" x="70.7" y="36.7" rot="MR180">
-<attribute name="OC_NEWARK" value="unknown" x="70.7" y="36.7" size="0.8128" layer="28" font="vector" ratio="17" rot="MR180" display="off"/>
-<attribute name="MPN" value="" x="70.7" y="36.7" size="0.8128" layer="28" font="vector" ratio="17" rot="MR180" display="off"/>
 <attribute name="MF" value="" x="70.7" y="36.7" size="0.8128" layer="28" font="vector" ratio="17" rot="MR180" display="off"/>
+<attribute name="MPN" value="" x="70.7" y="36.7" size="0.8128" layer="28" font="vector" ratio="17" rot="MR180" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="70.7" y="36.7" size="0.8128" layer="28" font="vector" ratio="17" rot="MR180" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="70.7" y="36.7" size="0.8128" layer="28" font="vector" ratio="17" rot="MR180" display="off"/>
 </element>
 <element name="U$1" library="adafruit" package="PJ-102A" value="2.1MMJACKTHM" x="96" y="51.2" rot="R270"/>
 <element name="JP1" library="pinhead" package="1X02" value="" x="13.9" y="58.3"/>
@@ -21569,20 +21574,20 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <element name="R10" library="adafruit" package="M1206" value="1K" x="35.45" y="41.8" rot="R90"/>
 <element name="D3" library="semicon-smd-ipc" package="MELF-MLL41" value="" x="57.4" y="32.3" rot="R270"/>
 <element name="X1" library="con-wago-500" package="W237-102" value="" x="37.5" y="57.4">
-<attribute name="OC_NEWARK" value="70K9898" x="37.5" y="57.4" size="1.778" layer="27" display="off"/>
-<attribute name="MPN" value="237-102" x="37.5" y="57.4" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="" x="37.5" y="57.4" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="237-102" x="37.5" y="57.4" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="37.5" y="57.4" size="1.778" layer="27" display="off"/>
+<attribute name="OC_NEWARK" value="70K9898" x="37.5" y="57.4" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R11" library="adafruit" package="M1206" value="10k" x="39.6" y="41.8" rot="R270"/>
 <element name="R20" library="adafruit" package="M1206" value="20k" x="39.6" y="47.8" rot="R270"/>
 <element name="R21" library="adafruit" package="M1206" value="10k" x="31.65" y="39.95" rot="R270"/>
 <element name="R22" library="adafruit" package="M1206" value="20k" x="31.65" y="45.2" rot="R270"/>
 <element name="X2" library="con-berg" package="PN87520" value="" x="2.1" y="85" rot="R270">
-<attribute name="OC_NEWARK" value="unknown" x="2.1" y="85" size="1.27" layer="27" font="vector" ratio="15" rot="R270" display="off"/>
-<attribute name="MPN" value="" x="2.1" y="85" size="1.27" layer="27" font="vector" ratio="15" rot="R270" display="off"/>
 <attribute name="MF" value="" x="2.1" y="85" size="1.27" layer="27" font="vector" ratio="15" rot="R270" display="off"/>
+<attribute name="MPN" value="" x="2.1" y="85" size="1.27" layer="27" font="vector" ratio="15" rot="R270" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="2.1" y="85" size="1.27" layer="27" font="vector" ratio="15" rot="R270" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="2.1" y="85" size="1.27" layer="27" font="vector" ratio="15" rot="R270" display="off"/>
 </element>
 <element name="R23" library="adafruit" package="M1206" value="75K" x="9.45" y="89.95" rot="R180"/>
 <element name="R24" library="adafruit" package="M1206" value="75K" x="9.45" y="82.6" rot="R180"/>
@@ -21596,25 +21601,25 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <element name="USBPWR4" library="RepRapjr" package="LED3MM" value="" x="10.05" y="70.55" rot="R180"/>
 <element name="R27" library="rcl" package="M1206" value="1K" x="10" y="74.4" rot="R180"/>
 <element name="X5" library="con-wago-500" package="W237-102" value="" x="42.35" y="83.85" rot="R90">
-<attribute name="OC_NEWARK" value="70K9898" x="42.35" y="83.85" size="1.27" layer="27" font="vector" ratio="15" rot="R90" display="off"/>
-<attribute name="MPN" value="237-102" x="42.35" y="83.85" size="1.27" layer="27" font="vector" ratio="15" rot="R90" display="off"/>
 <attribute name="MF" value="" x="42.35" y="83.85" size="1.27" layer="27" font="vector" ratio="15" rot="R90" display="off"/>
+<attribute name="MPN" value="237-102" x="42.35" y="83.85" size="1.27" layer="27" font="vector" ratio="15" rot="R90" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="42.35" y="83.85" size="1.27" layer="27" font="vector" ratio="15" rot="R90" display="off"/>
+<attribute name="OC_NEWARK" value="70K9898" x="42.35" y="83.85" size="1.27" layer="27" font="vector" ratio="15" rot="R90" display="off"/>
 </element>
 <element name="JP2" library="pinhead" package="1X02" value="" x="11.4" y="96.6"/>
 <element name="U$2" library="ESP8266-ESP12" package="ESP8266-ESP12" value="ESP8266_ESP-12" x="73.8" y="76.2" rot="R90"/>
 <element name="U$4" library="usb-serial" package="SOIC16" value="CH340G" x="83.8" y="78.25" rot="R90"/>
 <element name="X6" library="con-berg" package="PN61729" value="" x="96" y="84.55" rot="R90">
-<attribute name="OC_NEWARK" value="unknown" x="89.65" y="69.2" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MPN" value="" x="89.65" y="69.2" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MF" value="" x="89.65" y="69.2" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MPN" value="" x="89.65" y="69.2" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="89.65" y="69.2" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="89.65" y="69.2" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="12MHZ" library="crystal" package="HC49UP" value="" x="81.9" y="87.5" rot="R180">
-<attribute name="OC_NEWARK" value="unknown" x="109.55" y="81.2" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MPN" value="" x="109.55" y="81.2" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MF" value="" x="109.55" y="81.2" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MPN" value="" x="109.55" y="81.2" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="109.55" y="81.2" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="109.55" y="81.2" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="C12" library="rcl" package="C1206" value="0.1U" x="85.1" y="92.05"/>
 <element name="C10" library="rcl" package="C1206" value="0.1U" x="78.8" y="92.05" rot="R180"/>
@@ -22054,8 +22059,6 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <contactref element="IC3" pad="3"/>
 <contactref element="IC3" pad="6"/>
 <contactref element="C1" pad="-"/>
-<contactref element="IC3" pad="3"/>
-<contactref element="IC3" pad="6"/>
 <contactref element="IC3" pad="5"/>
 <contactref element="C4" pad="-"/>
 <contactref element="D4" pad="2"/>
@@ -22850,8 +22853,6 @@ Source: http://www.onsemi.co.jp .. LM317M-D.PDF</description>
 <contactref element="IC4" pad="3"/>
 <contactref element="IC4" pad="6"/>
 <contactref element="C8" pad="-"/>
-<contactref element="IC4" pad="3"/>
-<contactref element="IC4" pad="6"/>
 <contactref element="IC4" pad="5"/>
 <contactref element="C9" pad="-"/>
 <contactref element="D5" pad="2"/>
